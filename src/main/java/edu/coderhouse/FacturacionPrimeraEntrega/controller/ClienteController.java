@@ -25,14 +25,12 @@ public class ClienteController {
     public Cliente agregarCliente(@RequestBody Cliente cliente) {
         return clienteService.agregarCliente(cliente);
     }
-    @GetMapping("/todos")     //TRAE TODOS LOS CLIENTES
+    @GetMapping("/todos")//TRAE TODOS LOS CLIENTES
+    @Operation(summary = "Trae todos los clientes", description = "NO usa parametros")
+
     public List<Cliente> obtenerTodosLosClientes() {
         return clienteService.obtenerTodosLosClientes();
     }
-//    @GetMapping("/buscar/{id}")
-//    public Optional<Cliente> buscarCliente(@PathVariable Long id) {
-//        return clienteService.buscarCliente(id);
-//    }
 
     @GetMapping("/buscar/{id}")
     @Operation(summary = "Buscar Cliente por Id", description = "Busca una cliente colocando un Id valido")
@@ -46,11 +44,15 @@ public class ClienteController {
         }
     }
     @DeleteMapping("/borrar/{id}")
+    @Operation(summary = "Borra Cliente por Id", description = "Borra un cliente colocando un Id valido")
+
     public ResponseEntity<String> borrarCliente(@PathVariable Long id) {
         clienteService.borrarCliente(id);
         return new ResponseEntity<>("Cliente borrado correctamente", HttpStatus.OK);
     }
     @PutMapping("/actualizar/{id}")
+    @Operation(summary = "Actualiza Cliente por Id", description = "Actualiza un cliente colocando un Id valido")
+
     public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long id, @RequestBody Cliente clienteActualizado) {
         Cliente cliente = clienteService.actualizarCliente(id, clienteActualizado);
         return new ResponseEntity<>(cliente, HttpStatus.OK);
