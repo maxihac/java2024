@@ -1,0 +1,42 @@
+2024-09-01 10:45:40.301029-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:45:53.927986-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:45:57.178889-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:46:22.729252-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:51:04.637326-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:57:31.631288-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:57:34.153443-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:57:36.231734-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 10:58:31.451091-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+select c1_0.idcliente,c1_0.apellido,c1_0.dni,c1_0.email,c1_0.nombre,v1_0.cliente_id,v1_0.idventa,v1_0.factura,v1_0.fecha,v1_0.tipofactura,v1_0.total from cliente c1_0 left join venta v1_0 on c1_0.idcliente=v1_0.cliente_id where c1_0.idcliente=? [42104-224]
+2024-09-01 11:01:35.644646-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 11:01:37.561088-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 11:01:38.844459-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-01 11:06:03.658882-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]
+2024-09-02 00:14:15.257741-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "CLIENTE" not found (this database is empty); SQL statement:
+insert into cliente (apellido,dni,email,nombre,idcliente) values (?,?,?,?,default) [42104-224]

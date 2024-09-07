@@ -1,0 +1,30 @@
+Nota: en la base solo hay 2 clientes ,2 productos y 2 ventas
+
+
+Endpoint para agregar ventas
+POST 
+http://localhost:8080/ventas/agregar
+
+ {
+  "tipofactura": "B",
+  "factura": 12346,
+  "fecha": "2024-09-04",
+  "total": 5000,
+  "cliente": {
+    "idcliente": 1
+  },
+  "ventaProductos": [
+    {
+      "cantidad": 5,
+      "producto": {
+        "idProducto": 1
+      }
+    },
+    {
+      "cantidad": 3,
+      "producto": {
+        "idProducto": 2
+      }
+    }
+  ]
+}
