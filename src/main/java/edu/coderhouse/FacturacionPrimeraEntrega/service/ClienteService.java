@@ -33,7 +33,11 @@ public class ClienteService {
     }
 
     public void borrarCliente(Long id) {
-        clienteRepository.deleteById(id);
+
+            Cliente cliente = clienteRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
+            clienteRepository.delete(cliente);
+
     }
     public Cliente actualizarCliente(Long id, Cliente clienteActualizado) {
         Cliente clienteExistente = clienteRepository.findById(id)

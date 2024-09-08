@@ -1,6 +1,7 @@
 package edu.coderhouse.FacturacionPrimeraEntrega.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import  jakarta.persistence.*;
 import java.util.List;
@@ -29,7 +30,7 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Schema(description = "Lista de ventas del cliente",accessMode = Schema.AccessMode.READ_ONLY)
-    @JsonBackReference
+    @JsonIgnore
      private List<Venta> ventas;
 
     public Cliente() {

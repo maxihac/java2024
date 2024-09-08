@@ -36,8 +36,13 @@ public Producto buscarProducto(Long id) {
 }
 
 
+//    public void borrarProducto(Long id) {
+//        productoRepository.deleteById(id);
+//    }
     public void borrarProducto(Long id) {
-        productoRepository.deleteById(id);
+        Producto producto = productoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        productoRepository.delete(producto);
     }
     public Producto actualizarProducto(Long id, Producto productoActualizado) {
         Producto productoExistente = productoRepository.findById(id)

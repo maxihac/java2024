@@ -1,6 +1,8 @@
 package edu.coderhouse.FacturacionPrimeraEntrega.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -11,13 +13,19 @@ import java.util.Objects;
 public class Producto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Id unico de producto",example = "1",accessMode = Schema.AccessMode.READ_ONLY)
     private int idProducto;
+    @Schema(description = "Nombre de Producto",example = "Manzana",requiredMode = Schema.RequiredMode.REQUIRED)
     private String nombre;
+    @Schema(description = "Stock",example = "200",requiredMode = Schema.RequiredMode.REQUIRED)
     private int stock;
+    @Schema(description = "Precio",example = "250.80",requiredMode = Schema.RequiredMode.REQUIRED)
     private Double precio;
 
     @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference
+    //@JsonBackReference
+    @Schema(description = "Lista de ventas del Producto",accessMode = Schema.AccessMode.READ_ONLY)
+    @JsonIgnore
     private List<VentaProducto> ventaProductos;
 
     public Producto() {

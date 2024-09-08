@@ -39,6 +39,9 @@ public class VentaService {
     public void borrarVenta(Long id) {
         ventaRepository.deleteById(id);
     }
+
+
+
     public Venta actualizarVenta(Long id, Venta ventaActualizado) {
         Venta ventaExistente = ventaRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Venta no encontrada"));
