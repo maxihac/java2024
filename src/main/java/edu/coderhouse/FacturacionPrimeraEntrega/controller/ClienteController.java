@@ -55,12 +55,12 @@ public class ClienteController {
     @PutMapping("/actualizar/{id}")
     @Operation(summary = "Actualiza Cliente por Id", description = "Actualiza un cliente colocando un Id valido")
 
-    public ResponseEntity<Cliente> actualizarCliente(@PathVariable Long id, @RequestBody Cliente clienteActualizado) {
+    public ResponseEntity<?> actualizarCliente(@PathVariable Long id, @RequestBody Cliente clienteActualizado) {
         try {
-            Cliente cliente =  clienteService.actualizarCliente(id, clienteActualizado);
+            Cliente cliente = clienteService.actualizarCliente(id, clienteActualizado);
             return ResponseEntity.ok(cliente);
         } catch (RuntimeException ex) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cliente no encontrado. Por favor, pruebe con otro ID.");
         }
     }
 

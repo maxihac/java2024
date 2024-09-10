@@ -1,6 +1,7 @@
 package edu.coderhouse.FacturacionPrimeraEntrega.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -11,15 +12,22 @@ public class VentaProducto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+ //   @Schema(description = "Id unico de Venta_producto",example = "1",accessMode = Schema.AccessMode.READ_ONLY)
+
     private int idVentaProducto;
+ //   @Schema(description = "Cantidad vendida",example = "5",requiredMode = Schema.RequiredMode.REQUIRED)
+
     private Integer cantidad;
 
     @ManyToOne
     @JoinColumn(name = "id_venta")
+    //@Schema(hidden = true) // Ocultar en la documentación de Swagger
     @JsonBackReference
     private Venta venta;
 
     @ManyToOne
+  //  @Schema(description = "Id producto asociado a la venta",example = "1",requiredMode = Schema.RequiredMode.REQUIRED)
+
     @JoinColumn(name = "id_producto")
     private Producto producto;
 

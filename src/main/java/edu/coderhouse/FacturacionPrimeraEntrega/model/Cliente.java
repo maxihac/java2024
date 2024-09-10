@@ -30,7 +30,7 @@ public class Cliente {
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Schema(description = "Lista de ventas del cliente",accessMode = Schema.AccessMode.READ_ONLY)
-    @JsonIgnore
+    @JsonBackReference
      private List<Venta> ventas;
 
     public Cliente() {

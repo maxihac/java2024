@@ -42,10 +42,12 @@ public class ClienteService {
     public Cliente actualizarCliente(Long id, Cliente clienteActualizado) {
         Cliente clienteExistente = clienteRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Cliente no encontrado"));
+
         clienteExistente.setNombre(clienteActualizado.getNombre());
         clienteExistente.setApellido(clienteActualizado.getApellido());
         clienteExistente.setDni(clienteActualizado.getDni());
         clienteExistente.setEmail(clienteActualizado.getEmail());
+
         return clienteRepository.save(clienteExistente);
     }
 }

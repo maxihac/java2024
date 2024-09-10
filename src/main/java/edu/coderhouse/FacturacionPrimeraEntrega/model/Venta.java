@@ -2,6 +2,8 @@ package edu.coderhouse.FacturacionPrimeraEntrega.model;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import io.swagger.v3.oas.annotations.media.ArraySchema;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -11,20 +13,26 @@ public class Venta {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "Id unico de Venta",example = "1",accessMode = Schema.AccessMode.READ_ONLY)
     private Long idventa;
+    @Schema(description = "Tipo de factura",example = "A",requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "TIPOFACTURA")
     private char tipofactura;
+    @Schema(description = "Nro factura",example = "123",requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "FACTURA")
     private int factura;
+    @Schema(description = "Fecha",example = "2024-09-02",requiredMode = Schema.RequiredMode.REQUIRED)
     @Column(name = "FECHA")
     private Date fecha;
-
     @Column(name = "TOTAL")
-    private int total;
+    @Schema(description = "Total",example = "25000",requiredMode = Schema.RequiredMode.REQUIRED)
+      private int total;
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-       private List<VentaProducto> ventaProductos;
+    //@ArraySchema(schema = @Schema(description = "Productos vendidos", requiredMode = Schema.RequiredMode.REQUIRED))
+    private List<VentaProducto> ventaProductos;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+   // @Schema(description = "Id cliente asociado a la venta",example = "1",requiredMode = Schema.RequiredMode.REQUIRED)
     private Cliente cliente;
 
     public Venta() {
