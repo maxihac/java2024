@@ -1,4 +1,5 @@
 package edu.coderhouse.FacturacionPrimeraEntrega.controller;
+import edu.coderhouse.FacturacionPrimeraEntrega.model.Cliente;
 import edu.coderhouse.FacturacionPrimeraEntrega.model.Producto;
 import edu.coderhouse.FacturacionPrimeraEntrega.service.ProductoService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -29,17 +30,17 @@ public class ProductoController {
     }
 
 
-@GetMapping("/buscar/{id}")
-@Operation(summary = "Busca producto por Id", description = "Busca producto y lo devueve si es valido")
+    @GetMapping("/buscar/{id}")
+    @Operation(summary = "Busca producto por Id", description = "Busca producto y lo devueve si es valido")
 
-public ResponseEntity<?> buscarProducto(@PathVariable Long id) {
-    try {
-        Producto producto = productoService.buscarProducto(id);
-        return ResponseEntity.ok(producto);
-    } catch (RuntimeException ex) {
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+    public ResponseEntity<?> buscarProducto(@PathVariable Long id) {
+        try {
+            Producto producto = productoService.buscarProducto(id);
+            return ResponseEntity.ok(producto);
+        } catch (RuntimeException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
+        }
     }
-}
 
 
     @DeleteMapping("/borrar/{id}")
@@ -47,17 +48,22 @@ public ResponseEntity<?> buscarProducto(@PathVariable Long id) {
     public ResponseEntity<String> borrarProducto(@PathVariable Long id) {
 
         try {
-             productoService.borrarProducto(id);
+            productoService.borrarProducto(id);
             return new ResponseEntity<>("Producto borrado correctamente", HttpStatus.OK);
         } catch (RuntimeException ex) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
         }
     }
+
     @PutMapping("/actualizar/{id}")
     @Operation(summary = "Actualiza producto por Id", description = "Actualiza un producto si encuentra el id ")
 
-    public ResponseEntity<Producto> actualizarProducto(@PathVariable Long id, @RequestBody Producto productoActualizado) {
-        Producto producto = productoService.actualizarProducto(id, productoActualizado);
-        return new ResponseEntity<>(producto, HttpStatus.OK);
+    public ResponseEntity<?> actualizarProducto(@PathVariable Long id, @RequestBody Producto productoActualizado) {
+        try {
+            Producto producto = productoService.actualizarProducto(id, productoActualizado);
+            return ResponseEntity.ok(producto);
+        } catch (RuntimeException ex) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Producto no encontrado. Por favor, pruebe con otro ID.");
+        }
     }
 }
