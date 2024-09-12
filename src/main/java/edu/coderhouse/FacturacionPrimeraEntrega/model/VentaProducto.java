@@ -12,16 +12,16 @@ public class VentaProducto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
- //   @Schema(description = "Id unico de Venta_producto",example = "1",accessMode = Schema.AccessMode.READ_ONLY)
+  @Schema(description = "Id unico de Venta_producto",example = "1",accessMode = Schema.AccessMode.READ_ONLY)
 
     private int idVentaProducto;
- //   @Schema(description = "Cantidad vendida",example = "5",requiredMode = Schema.RequiredMode.REQUIRED)
+   @Schema(description = "Cantidad vendida",example = "5",requiredMode = Schema.RequiredMode.REQUIRED)
 
     private Integer cantidad;
 
     @ManyToOne
     @JoinColumn(name = "id_venta")
-    //@Schema(hidden = true) // Ocultar en la documentación de Swagger
+    @Schema(hidden = true) // Ocultar en la documentación de Swagger
     @JsonBackReference
     private Venta venta;
 

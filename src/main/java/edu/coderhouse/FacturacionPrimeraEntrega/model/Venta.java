@@ -27,12 +27,13 @@ public class Venta {
     @Column(name = "TOTAL")
     @Schema(description = "Total",example = "25000",requiredMode = Schema.RequiredMode.REQUIRED)
       private int total;
-    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    //@ArraySchema(schema = @Schema(description = "Productos vendidos", requiredMode = Schema.RequiredMode.REQUIRED))
+    @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @Schema(description = "Lista de productos vendidos")
+    //@ArraySchema(schema = @Schema(description = "Productos vendidos",example = "1", requiredMode = Schema.RequiredMode.REQUIRED))
     private List<VentaProducto> ventaProductos;
     @ManyToOne
     @JoinColumn(name = "cliente_id")
-   // @Schema(description = "Id cliente asociado a la venta",example = "1",requiredMode = Schema.RequiredMode.REQUIRED)
+    //@Schema(description = "Id cliente asociado a la venta",example = "1",requiredMode = Schema.RequiredMode.REQUIRED)
     private Cliente cliente;
 
     public Venta() {

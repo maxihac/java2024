@@ -20,6 +20,7 @@ public class VentaService {
             for (VentaProducto vp : venta.getVentaProductos()) {
                 vp.setVenta(venta);
             }
+
             return ventaRepository.save(venta);
         } catch (Exception e) {
             // Registrar el error

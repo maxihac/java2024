@@ -9,7 +9,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RestController
@@ -21,9 +23,15 @@ public class VentaController {
 
     @PostMapping("/agregar")
     @Operation(summary = "Agregar Nueva Venta", description = "Agrega una nueva Venta al sistema")
-    public ResponseEntity<Venta> agregarVenta(@RequestBody Venta venta) {
+//    public ResponseEntity<Venta> agregarVenta(@RequestBody Venta venta) {
+//        Venta nuevaVenta = ventaService.agregarVenta(venta);
+//        return new ResponseEntity<>(nuevaVenta, HttpStatus.CREATED);
+//    }
+    public ResponseEntity<Map<String, String>> agregarVenta(@RequestBody Venta venta) {
         Venta nuevaVenta = ventaService.agregarVenta(venta);
-        return new ResponseEntity<>(nuevaVenta, HttpStatus.CREATED);
+        Map<String, String> response = new HashMap<>();
+        response.put("mensaje", "Venta agregada correctamente");
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
     @GetMapping("/todos")     //TRAE TODOS LOS ventaS
     @Operation(summary = "Muestra todas la ventas", description = "Vea el detalle de todas las ventas del sistema")
